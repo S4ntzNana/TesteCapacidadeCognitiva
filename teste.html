@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Lado esquerdo */
+    .left-panel {
+      width: 35%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .logo {
+      width: 100px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 250px;
+    }
+
+    input {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Lado direito */
+    .right-panel {
+      width: 65%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    /* ==================== TEMAS ==================== */
+
+    /* 1. Sofisticado & Cinematográfico 🎥 */
+    body.theme1 {
+      background-color: #121212;
+      color: #D9D4CF;
+    }
+    body.theme1 .left-panel { background-color: #121212; color: #D9D4CF; }
+    body.theme1 .logo { background-color: #7B1E1E; color: #D9D4CF; }
+    body.theme1 h2 { color: #C9A15D; }
+    body.theme1 input { background-color: #2b2b2b; color: #D9D4CF; }
+    body.theme1 button { background-color: #7B1E1E; color: #fff; }
+    body.theme1 button:hover { background-color: #C9A15D; color: #121212; }
+    body.theme1 .right-panel { background-color: #1e1e1e; color: #C9A15D; }
+
+    /* 2. Brasil Contemporâneo 🇧🇷 */
+    body.theme2 {
+      background-color: #1B4D3E;
+      color: #F5F3EE;
+    }
+    body.theme2 .left-panel { background-color: #1B4D3E; color: #F5F3EE; }
+    body.theme2 .logo { background-color: #124559; color: #F5F3EE; }
+    body.theme2 h2 { color: #E4B343; }
+    body.theme2 input { background-color: #F5F3EE; color: #124559; }
+    body.theme2 button { background-color: #E4B343; color: #124559; }
+    body.theme2 button:hover { background-color: #124559; color: #F5F3EE; }
+    body.theme2 .right-panel { background-color: #F5F3EE; color: #124559; }
+
+    /* 3. Criativo & Vibrante 🎨 */
+    body.theme3 {
+      background-color: #2E1A47;
+      color: #F7E6C4;
+    }
+    body.theme3 .left-panel { background-color: #2E1A47; color: #F7E6C4; }
+    body.theme3 .logo { background-color: #E66A39; color: #fff; }
+    body.theme3 h2 { color: #D4A017; }
+    body.theme3 input { background-color: #F7E6C4; color: #2E1A47; }
+    body.theme3 button { background-color: #E66A39; color: #fff; }
+    body.theme3 button:hover { background-color: #D4A017; color: #2E1A47; }
+    body.theme3 .right-panel { background-color: #F7E6C4; color: #2E1A47; }
+
+    /* 4. Minimalista & Atemporal 🖤 */
+    body.theme4 {
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+    body.theme4 .left-panel { background-color: #000000; color: #FFFFFF; }
+    body.theme4 .logo { background-color: #4A4A4A; color: #FFFFFF; }
+    body.theme4 h2 { color: #FFFFFF; }
+    body.theme4 input { background-color: #1c1c1c; color: #FFFFFF; border: 1px solid #4A4A4A; }
+    body.theme4 button { background-color: #D7263D; color: #FFFFFF; }
+    body.theme4 button:hover { background-color: #4A4A4A; }
+    body.theme4 .right-panel { background-color: #111; color: #D7263D; }
+
+    /* ==================== BARRA TEMAS ==================== */
+    .theme-bar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+      background-color: rgba(0,0,0,0.2);
+      padding: 10px 20px;
+      border-radius: 30px;
+      backdrop-filter: blur(6px);
+    }
+
+    .theme-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      color: #fff;
+    }
+
+    /* Preview de cada tema no botão */
+    .theme-btn[data-theme="theme1"] { background-color: #7B1E1E; }
+    .theme-btn[data-theme="theme2"] { background-color: #1B4D3E; }
+    .theme-btn[data-theme="theme3"] { background-color: #E66A39; }
+    .theme-btn[data-theme="theme4"] { background-color: #000000; }
+
+    .theme-btn:hover { transform: scale(1.1); }
+  </style>
+</head>
+<body class="theme1">
+  <div class="left-panel">
+    <div class="logo">LOGO</div>
+    <h2>Criar Conta</h2>
+    <form>
+      <input type="email" placeholder="E-mail" required>
+      <input type="password" placeholder="Senha" required>
+      <input type="password" placeholder="Confirmar senha" required>
+      <button type="submit">Criar</button>
+    </form>
+  </div>
+  <div class="right-panel">
+    Image Background
+  </div>
+
+  <!-- Barra de troca de temas -->
+  <div class="theme-bar">
+    <div class="theme-btn" data-theme="theme1">1</div>
+    <div class="theme-btn" data-theme="theme2">2</div>
+    <div class="theme-btn" data-theme="theme3">3</div>
+    <div class="theme-btn" data-theme="theme4">4</div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.theme-btn');
+    const body = document.body;
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        body.classList.remove('theme1', 'theme2', 'theme3', 'theme4');
+        body.classList.add(btn.dataset.theme);
+      });
+    });
+  </script>
+</body>
+</html>
