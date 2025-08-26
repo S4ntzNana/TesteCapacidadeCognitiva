@@ -139,6 +139,27 @@
   width: 20px;
   height: 20px;
 }
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  width: 100%;
+  color: #888;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #444;
+  margin: 0 10px;
+}
+
+.divider span {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
 
   </style>
 </head>
@@ -152,6 +173,8 @@
       <input type="password" placeholder="Confirmar senha" required>
       <button type="submit">Criar</button>
     </form>
+    <div class="divider"><span>OU</span></div>
+
     <button class="google-btn" type="button">
   <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" class="google-icon">
   Vincular com Google
@@ -163,6 +186,7 @@
 
 </body>
 </html>
+
 
 
 
