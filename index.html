@@ -32,17 +32,36 @@
       color: #D9D4CF;
     }
 
-   .logo {
-  width: 100px; /* Ajuste de largura do logo */
+ .logo {
+  width: 150px; /* Aumenta a largura do logo */
   height: auto; /* Mantém a proporção da imagem */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px; /* Aumenta o espaço abaixo do logo */
   font-weight: bold;
   border-radius: 6px;
+  background-color: #7B1E1E;
   color: #D9D4CF;
-  padding: 10px; /* Para dar um espaço ao redor do logo */
+  padding: 15px; /* Aumenta o espaço ao redor da logo */
+}
+
+.logo img {
+  width: 100%;  /* A logo ocupa toda a largura da div */
+  height: auto;  /* Mantém a proporção da imagem */
+  object-fit: contain; /* Garante que a imagem seja escalada sem distorções */
+}
+
+.left-panel {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Alinha os itens para o início */
+  padding: 20px;
+  color: #D9D4CF;
+  justify-content: center; /* Centraliza os itens no painel */
+  height: 100vh;
 }
 
 .logo img {
@@ -195,6 +214,7 @@
 
 </body>
 </html>
+
 
 
 
