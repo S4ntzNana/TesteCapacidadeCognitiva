@@ -183,9 +183,19 @@
       color: #7B1E1E;
       text-decoration: none;
       font-weight: bold;
+      position: relative;
     }
 
     .login-link a:hover {
+      color: #C9A15D;
+    }
+
+    .login-link a::after {
+      content: ' →';
+      position: absolute;
+      right: -15px;
+      top: 0;
+      font-size: 18px;
       color: #C9A15D;
     }
   </style>
@@ -205,7 +215,9 @@
       <button type="submit">Criar</button>
     </form> 
 
-    <p>Já tem uma conta? <a href="/login">Faça login</a></p>
+    <div class="login-link">
+      <p>Já tem uma conta? <a href="/login">Faça login</a></p>
+    </div>
 
     <div class="divider"><span>OU</span></div>
 
