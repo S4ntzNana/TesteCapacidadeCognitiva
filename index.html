@@ -32,18 +32,25 @@
       color: #D9D4CF;
     }
 
-    .logo {
-      width: 100px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 30px;
-      font-weight: bold;
-      border-radius: 6px;
-      background-color: #7B1E1E;
-      color: #D9D4CF;
-    }
+   .logo {
+  width: 100px; /* Ajuste de largura do logo */
+  height: auto; /* Mantém a proporção da imagem */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  border-radius: 6px;
+  background-color: #7B1E1E;
+  color: #D9D4CF;
+  padding: 10px; /* Para dar um espaço ao redor do logo */
+}
+
+.logo img {
+  width: 100%;  /* A logo ocupa toda a largura da div */
+  height: auto;  /* Mantém a proporção da imagem */
+  object-fit: contain; /* Garante que a imagem seja escalada sem distorções */
+}
 
     h2 {
       margin-bottom: 20px;
@@ -165,9 +172,10 @@
 </head>
 <body>
   <div class="left-panel">
-    <div class="logo">
-      <a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/50DK35Yw/Logo-Maeca-Film-Ae-removebg-preview.png' border='0' alt='Logo-Maeca-Film-Ae-removebg-preview'/></a>
-    </div>
+   <div class="logo">
+  <img src="https://i.postimg.cc/50DK35Yw/Logo-Maeca-Film-Ae-removebg-preview.png" alt="Logo" />
+</div>
+
     <h2>Criar Conta</h2>
     <form>
       <input type="email" placeholder="E-mail" required>
@@ -188,6 +196,7 @@
 
 </body>
 </html>
+
 
 
 
